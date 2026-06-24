@@ -72,8 +72,8 @@ export function LiquidMetalIcon({
       {/* Thin white outline rim */}
       <Outline image={image} />
       {/* Colored fallback so there is no white flash before the shader paints */}
-      <FillFallback image={image} color="#6B7074" />
-      <LiquidMetalCanvas image={image} colorTint="#8C9094" />
+      <FillFallback image={image} color="#AEB4B9" />
+      <LiquidMetalCanvas image={image} colorTint="#D2D7DB" />
     </div>
   )
 }
