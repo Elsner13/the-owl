@@ -113,7 +113,7 @@ export default function HomePage() {
               'tile-link group flex flex-col items-center gap-2 py-2'
             const content = (
               <>
-                <span className="tile-icon flex h-16 w-16 items-center justify-center text-foreground">
+                <span className="tile-icon flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.025] p-2.5 text-foreground">
                   {t.icon}
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
