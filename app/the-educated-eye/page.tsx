@@ -143,18 +143,31 @@ export default function Page() {
                   from a book.
                 </p>
                 <p>
-                  I spent over a decade inside one of the most technical,
-                  unforgiving skills in sport: the discus. I won two NCAA Division
-                  III national titles. From the outside that looks like talent. It
-                  was not. It was learning to see one inch nobody around me could
-                  see: the exact moment in a throw where the whole thing is won or
-                  lost.
+                  I spent over a decade as a thrower. Shot put, discus, hammer,
+                  weight. In 2018 I won two NCAA Division III national titles, in
+                  the shot put and the discus. From the outside that looks like
+                  talent. It was not. It was learning to see one inch nobody around
+                  me could see: the exact moment in a throw where the whole thing is
+                  won or lost.
                 </p>
                 <p>
-                  No coach could hand me that inch with instruction.
-                  &ldquo;Want it more&rdquo; did nothing. &ldquo;Try harder&rdquo;
-                  did nothing. What changed everything was learning to perceive the
-                  throw differently. To read the cues that were already there.
+                  The last practice before that national meet, my coach gave me one
+                  cue. Be long and fluid. Think of a bow. You draw it back slow,
+                  under one smooth line of tension, and when it is full, you do not
+                  throw the arrow. You let go.
+                </p>
+                <p>
+                  So I stopped trying to throw the discus. I let it load like that
+                  bow and release itself. And something left my hand I had never
+                  seen from myself. The discus came off so fast it startled me.
+                  Flat. Clean. And it just kept going. It landed near 60 meters.
+                </p>
+                <p>
+                  I took that one feeling to nationals. First throw of the meet.
+                  Thousands of people, cameras, a venue I knew by heart. I won the
+                  title on that throw, by more than four meters. Not because I
+                  wanted it more than anyone else in that ring. Because I had
+                  finally learned to see the throw that was already in me.
                 </p>
                 <p>
                   Then I spent years coaching. Close to 5,000 athletes. I watched
