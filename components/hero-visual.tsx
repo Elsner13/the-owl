@@ -76,10 +76,9 @@ export function HeroVisual() {
             subtitleVisible ? 'hero-fade-up' : 'opacity-0'
           }`}
         >
-          The information you need to change your life is already in your
-          environment. You just haven&apos;t been taught to read it. The Educated
-          Eye is an 8-week cohort for retraining what you&apos;re able to perceive,
-          so the world reorganizes around you instead of the other way around.
+          The opening you need is already in front of you. You just have not been
+          trained to see it. The Educated Eye is an 8-week live cohort that
+          retrains what you perceive, so the right move stops arriving late.
         </p>
 
         <div
