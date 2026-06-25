@@ -19,9 +19,9 @@ function Outline({ image }: { image: string }) {
 }
 
 /**
- * Solid colored fill in the exact icon shape. Sits under the shader as an
+ * Solid colored fill in the exact icon shape. Sits under the WebGL shader as an
  * instant, on-brand fallback so the icon never flashes pure white before the
- * WebGL effect paints.
+ * effect paints.
  */
 function FillFallback({ image, color }: { image: string; color: string }) {
   return (
@@ -42,6 +42,32 @@ function FillFallback({ image, color }: { image: string; color: string }) {
   )
 }
 
+/**
+ * Static chrome fill in the icon shape: a diagonal metallic gradient masked to
+ * the silhouette. Reads as brushed metal with zero runtime cost — no WebGL, no
+ * animation frame loop. Used for the small tile icons so the page only spins up
+ * a single WebGL context (the hero logo), which is the dominant perf lever.
+ */
+function StaticMetalFill({ image }: { image: string }) {
+  return (
+    <div
+      className="absolute inset-0"
+      style={{
+        WebkitMaskImage: `url(${image})`,
+        maskImage: `url(${image})`,
+        WebkitMaskRepeat: 'no-repeat',
+        maskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        maskPosition: 'center',
+        WebkitMaskSize: 'contain',
+        maskSize: 'contain',
+        backgroundImage:
+          'linear-gradient(140deg, #F1F3F4 0%, #AEB4BA 28%, #DBDFE2 50%, #888E95 72%, #E8EBED 100%)',
+      }}
+    />
+  )
+}
+
 export function AnimatedLogo({ className = '' }: { className?: string }) {
   const image = '/images/bg-mark-solid.svg'
   return (
@@ -50,6 +76,7 @@ export function AnimatedLogo({ className = '' }: { className?: string }) {
       <Outline image={image} />
       {/* Colored fallback so there is no white flash before the shader paints */}
       <FillFallback image={image} color="#9A1030" />
+      {/* The single live WebGL liquid-metal canvas on the page — the focal point */}
       <LiquidMetalCanvas
         image={image}
         colorTint="#E0285A"
@@ -71,9 +98,8 @@ export function LiquidMetalIcon({
     <div className={`relative ${className}`} aria-hidden="true">
       {/* Thin white outline rim */}
       <Outline image={image} />
-      {/* Colored fallback so there is no white flash before the shader paints */}
-      <FillFallback image={image} color="#AEB4B9" />
-      <LiquidMetalCanvas image={image} colorTint="#D2D7DB" />
+      {/* Static metallic fill — no WebGL, so these tiles cost nothing at runtime */}
+      <StaticMetalFill image={image} />
     </div>
   )
 }
