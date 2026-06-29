@@ -244,9 +244,76 @@
   }
 }
 
-/* Homepage renders instantly — no loading gate, no entrance animation. The
-   liquid-metal icons paint a colored fallback immediately and the WebGL shader
-   on top the instant the GPU is ready (see liquid-metal-canvas.tsx). */
+/* --- Homepage loading screen (owl logo with metallic shimmer) --- */
+.loader-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: oklch(0.16 0.01 20);
+  transition: opacity 600ms ease-out, visibility 600ms ease-out;
+}
+.loader-screen[data-hidden='true'] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+.loader-owl {
+  position: relative;
+  width: 7rem;
+  height: 7rem;
+  animation: loader-breathe 2.4s ease-in-out infinite;
+}
+/* Base owl tinted deep burgundy */
+.loader-owl-base {
+  position: absolute;
+  inset: 0;
+  background: oklch(0.32 0.13 14);
+  -webkit-mask: url('/images/bg-mark-solid.svg') center / contain no-repeat;
+  mask: url('/images/bg-mark-solid.svg') center / contain no-repeat;
+}
+/* Metallic highlight sweeping across the owl shape */
+.loader-owl-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    oklch(0.78 0.16 14) 47%,
+    oklch(0.95 0.05 30) 50%,
+    oklch(0.78 0.16 14) 53%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  -webkit-mask: url('/images/bg-mark-solid.svg') center / contain no-repeat;
+  mask: url('/images/bg-mark-solid.svg') center / contain no-repeat;
+  animation: loader-sweep 1.8s linear infinite;
+}
+@keyframes loader-sweep {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -150% 0;
+  }
+}
+@keyframes loader-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .loader-owl,
+  .loader-owl-shimmer {
+    animation: none;
+  }
+}
 
 /* --- Arrow-nudge CTA (Eden buttons) --- */
 .cta-arrow {

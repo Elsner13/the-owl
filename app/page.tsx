@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { AnimatedLogo, LiquidMetalIcon } from '@/components/animated-background'
+import { LoadingScreen } from '@/components/loading-screen'
 import {
   LinkedInIcon,
   XIcon,
@@ -76,6 +77,8 @@ const socials = [
 export default function HomePage() {
   return (
     <main className="relative flex min-h-svh flex-col bg-background text-foreground">
+      <LoadingScreen />
+
       {/* Centered profile + options */}
       <div className="relative z-10 mx-auto flex w-full max-w-2xl flex-1 flex-col items-center justify-center px-6 py-6 text-center">
         {/* Animated liquid-metal logo icon */}
@@ -110,7 +113,7 @@ export default function HomePage() {
               'tile-link group flex flex-col items-center gap-2 py-2'
             const content = (
               <>
-                <span className="tile-icon flex h-[4.75rem] w-[4.75rem] items-center justify-center rounded-full border border-white/[0.12] bg-white/[0.025] p-2.5 text-foreground">
+                <span className="tile-icon flex h-16 w-16 items-center justify-center text-foreground">
                   {t.icon}
                 </span>
                 <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground transition-colors duration-300 group-hover:text-foreground/80">
